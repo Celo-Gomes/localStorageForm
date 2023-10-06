@@ -36,7 +36,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Local Smart Form é um app que contém um formulário com paginas de cadastro, log, recuperação de senha e remoção de usuários.<br>
 Os dados são armazenados e recuperados atraves de 'localstorage'. Através da ferramenta FormSubmit, uma senha esquecida é enviada ao usuário cadastrado.
 
--[Visite o projeto online](https://celo-gomes.github.io/rkt-port)
+-[Visite o projeto online](https://celo-gomes.github.io/localStorageForm)
 
 ## 🔖 Layout
 
@@ -44,7 +44,7 @@ Layout desenvolvido com simplicidade, visando apenas a fluidez de utilização p
 
 ## :memo: Considerações.
 
-Esse projeto está sob a licença MIT.
+Esse projeto está sob a licença MIT.<br>
 Utilizado componentes de ícones com menções à:<br>
 <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a><br>
 <a href="https://www.flaticon.com/free-icons/email" title="email icons">Email icons created by Those Icons - Flaticon</a><br>
