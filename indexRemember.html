@@ -1,0 +1,95 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Remember</title>
+        <style>
+            body{
+                background-color: aquamarine; 
+            }
+            section{
+                text-align: center;
+                margin-top: 8rem;
+                background-color: aquamarine;
+            }
+            #user{
+                width: 110px;
+            }
+            #letter{
+                width: 20px;
+                margin-bottom: -10px;
+            }
+            
+            #log{
+                border: none;
+                border-bottom: 1px black dotted;
+                background-color: aquamarine;
+            }
+            #log:focus{
+                outline: 0;
+                background-color: aquamarine;
+            }
+            p{
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <section>
+            <form action="https://formsubmit.co/marcelog.3212@gmail.com" method="POST">
+            <img  id="user" src="./assets/profile.png" alt="User log">
+    
+            <p>
+                <label for="log">
+                    <img id="letter" src="./assets/email.png" alt="letter">
+                </label>
+                <input type="email" name="email" id="log" placeholder=" your.e-mail@mail.com" required title="Informe um e-mail no formato padrão!">
+                <input type="hidden" name="_autoresponse" id="auto" value=''>
+                <input type="hidden" name="_next" value="http://127.0.0.1:5500/Projetos/log_form/gitHGub_version/index.html">
+                <input type="hidden" name="_subject" value="Solicitação de recuperação de senha para o e-mail.">
+
+            </p>
+            <p>
+                <button type="button" id="cButton" onclick="confirm()">Confirme e-mail!</button>
+            </p>
+            <p>    
+                <button id="rButton" type="submit" onclick="teste()" disabled>SUBMIT</button>
+            </p>
+             </form> 
+             <script>
+                   let userMail
+                   let index
+                   let name = JSON.parse(localStorage.getItem('recName'))
+                   let mail = JSON.parse(localStorage.getItem('recMail')) || ''
+                   let pass = JSON.parse(localStorage.getItem('recKey'))  
+
+                   function confirm(){
+                        userMail = document.querySelector("#log").value;
+                        if(userMail.includes( '@') && userMail.includes( '.com')){
+                            index = mail.indexOf(userMail)
+                            
+                            document.querySelector("#auto").value = `
+                                Caro usuário ${name[index]}, sua senha recuperada é: 👉${pass[index]}👈
+                                `
+                            
+                            if(mail.includes(userMail)){
+                                document.querySelector("#rButton").disabled = false
+
+                                alert("Endereço confirmado! Você receberá um e-mail após submit!")
+                            }else{
+                                alert('E-mail não cadastrado!')
+                                document.location.reload(true)
+                            }
+                        }else{
+                            alert('Informe um e-mail no formato padrão!')   
+                        }
+                   }    
+             </script>  
+        </section>
+    </body>
+    </html>
+    
+    

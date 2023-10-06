@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body{
+            background-color: aquamarine; 
+        }
+        #sectionCad{
+            text-align: center;
+            margin-top: 10rem;
+            background-color: aquamarine;
+            
+        }
+        #user{
+            width: 110px;
+        }
+        #letter {
+            width: 20px;
+            margin-bottom: -10px;
+        }
+        #padlock, #padConfirm,#userName{
+            width: 18px;
+            margin-bottom: -6px;
+        }
+        
+        #log, #key, #keyConfirm, #name{
+            border: none;
+            border-bottom: 1px black dotted;
+            background-color: transparent;
+        }
+        #key:focus, #log:focus, #keyConfirm:focus, #name:focus{
+            outline: 0;
+            background-color: aquamarine;
+        }
+        p{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section id="sectionCad">
+        <form action="" method="post">            
+        <p>
+            <label for="name">
+                <img id='userName' src="./assets/user.png" alt="Logo usuário">
+            </label>
+            <input type="text" name="name" id="name" placeholder="   Your name" title="nome ou apelido">
+        </p>
+        <p>
+            <label for="log">
+                <img id="letter" src="./assets/email.png" alt="logo e-mail">
+            </label>
+            <input type="email" name="log" id="log" placeholder="  your.e-mail@mail.com"  title="Informe um e-mail no formato padrão!" onclick="tName()" readonly>
+        </p>
+        <p>
+            <label for="key">
+                <img id="padlock" src="./assets/padlock.png" alt="logo cadeado">
+            </label>
+            <input type="password" name="key" id="key" placeholder="  6 - digits" maxlength="6" title="A senha deve contre letras maiúsculas, minúsculas e números!" onclick="tMail()" readonly>
+        </p>
+        <p>
+            <label for="keyConfirm">
+                <img id="padConfirm" src="./assets/padlock.png" alt="logo cadeado">
+            </label>
+            <input type="password" name="keyConfirm" id="keyConfirm" placeholder="  Confirm" maxlength="6" title="Repita a senha para confirmação!" readonly>
+        </p>
+        
+        <p>
+            <input type="button" id="rButton" value="REGISTER" onclick="register()" disabled>
+        </p>
+        <p>
+            <input type="button" id = "rClear" value="CLEAR">
+        </p>
+        
+         </form> 
+    </section>
+
+    <script>
+        let arName =[];
+        let arMail = [];
+        let arKey = [];
+        let userName
+        let userMail
+        let userKey 
+
+       function tName(){
+            userName = document.querySelector("#name").value;
+            if(userName !=''){
+                      console.log(userName)
+                //document.querySelector("#log").removeAttribute('readonly');
+                document.querySelector("#log").readOnly = false;
+                document.querySelector('#name').readOnly=true;
+
+                if (localStorage.recName){          
+                arName = JSON.parse(localStorage.getItem('recName'));             
+            }
+            }
+            else{
+                alert('Coloque um nome ou apelido!')   
+            }
+       }
+
+       function tMail(){
+            userMail = document.querySelector("#log").value;
+
+            if (localStorage.recMail){             
+                arMail = JSON.parse(localStorage.getItem('recMail'));
+
+                if(arMail.includes(userMail)){
+                alert('E-mail já cadastratado!')
+                document.location.href = 'index.html'
+                } 
+            }
+
+                if(userMail.includes( '@') && userMail.includes( '.com')){  // verificação de sintaxe e-mail
+                
+                document.querySelector("#key").readOnly = false;
+                document.querySelector('#keyConfirm').readOnly = false;
+                document.querySelector('#log').readOnly=true;
+                document.querySelector("#rButton").disabled = false;    
+            }
+            else{
+                alert('Informe um e-mail no formato padrão!')   
+            }
+       }
+       function register(){
+            userKey = document.querySelector('#key').value;
+            let cKey = document.querySelector('#keyConfirm').value;
+
+            if (localStorage.recKey){             
+                arKey = JSON.parse(localStorage.getItem('recKey'));
+            }    
+
+            if(userKey.length == 6 && userKey === cKey){
+               arName.push(userName)
+               arMail.push(userMail)
+               arKey.push(userKey)
+               localStorage.recName = JSON.stringify(arName);
+               localStorage.recMail = JSON.stringify(arMail);
+               localStorage.recKey = JSON.stringify(arKey);
+               
+               let index = arName.indexOf(userName)
+               
+               localStorage.indexLs = JSON.stringify(index)
+                
+               document.querySelector('#rButton').disabled=true;
+               alert("Cadastro ok")
+               document.location.href = 'main.html'
+            }
+            else{
+                alert("Informe 6 digitos entre letras e números e repita corretamente!")       
+            }        
+       }
+
+       document.querySelector('#rClear').onclick = ()=>{
+        document.location.reload();
+       } 
+       
+    
+    </script>
+</body>
+</html>
+
+
+

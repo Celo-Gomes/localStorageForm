@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página em construção</title>
+</head>
+<body>
+    <h1></h1>
+    <script>
+        const name = JSON.parse(localStorage.getItem('recName')) 
+        const mail = JSON.parse(localStorage.getItem('recMail')) 
+        const indexPosition = JSON.parse(localStorage.getItem('indexLs')) 
+
+        document.querySelector('h1').innerText = `Seja bem vindo!!! 
+        ${name[indexPosition]}
+        E-mail: ${mail[indexPosition]}`;
+        
+
+
+        function changeBgColor(){
+            if(name[indexPosition] == 'vicente'){
+                document.body.style.backgroundColor = 'lightblue'   
+            } 
+            else if(name[indexPosition] == 'quel'){
+                document.body.style.backgroundColor = 'lightpink'
+            }
+            else if(name[indexPosition] == 'marcelo'){
+                document.body.style.backgroundColor = 'rgb(25,22,34)'
+                document.body.style.color = 'rgb(90,75,129)'
+            }
+            return ""   
+        }
+        
+        changeBgColor()
+
+    </script>
+    
+</body>
+</html>
+ 
