@@ -1,7 +1,7 @@
 <h1 align="center"> Local Smart Form </h1>
 
 <p align="center">
-"Local Smart Form" é um projeto que veio para sanar algumas curiosidades que implicavam em armazenamento local. Nele podemos trabalhar com valores recuperados entre paginas, bom como senhas esquecidas que podem ser enviadas atraves de resposta automática ao usuário.</br>
+"Local Smart Form" é um projeto que veio para sanar algumas curiosidades que implicavam em armazenamento local. Nele podemos trabalhar com valores recuperados entre paginas, bem como senhas esquecidas que podem ser enviadas atraves de resposta automática ao usuário.</br>
 Ainda amador, mas bastante esclarecedor!!!
 </p>
 
@@ -34,7 +34,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 Local Smart Form é um app que contém um formulário com paginas de cadastro, log, recuperação de senha e remoção de usuários.<br>
-Os dados são armazenados e recuperados atraves de 'localstorage'. Através da ferramenta FormSubmit, uma senha esquecida é enviada ao usuário cadastrado.
+Os dados são armazenados e recuperados atraves de 'localstorage'. <br>
+Através da ferramenta FormSubmit, uma senha esquecida é enviada ao usuário cadastrado.
 
 -[Visite o projeto online](https://celo-gomes.github.io/localStorageForm)
 
@@ -53,4 +54,4 @@ Utilizado componentes de ícones com menções à:<br>
 
 ---
 
-Feito com ♥ by M. Gomes :wave: [Visite no GitHub!](https://celo-gomes.github.io/rkt-port)
+Feito com ♥ by M. Gomes :wave: [Visite no GitHub!](https://github.com/celo-gomes)
