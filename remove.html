@@ -1,117 +1,131 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Remove</title>
-        <style>
-            body{
-                background-color: rgb(243, 73, 73); 
-            }
-            section{
-                text-align: center;
-                margin-top: 8rem;
-                background-color:  rgb(243, 73, 73);
-            }
-            #user{
-                width: 110px;
-            }
-            #letter{
-                width: 20px;
-                margin-bottom: -10px;
-            }
-            #padlock{
-                width: 18px;
-                margin-bottom: -6px;
-            }
-            
-            #log, #key{
-                border: none;
-                border-bottom: 1px black dotted;
-                background-color: aquamarine;
-            }
-            #key:focus, #log:focus{
-                outline: 0;
-                background-color: aquamarine;
-            }
-            p{
-                margin-top: 30px;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <section>
-            <form action="" method="post">
-            <img  id="user" src="./assets/profile.png" alt="User log">
-    
-            <p>
-                <label for="log">
-                    <img id="letter" src="./assets/email.png" alt="letter">
-                </label>
-                <input type="email" name="log" id="log" placeholder=" your.e-mail@mail.com" required title="Informe um e-mail no formato padrão!">
-            </p>
-            <p>
-                <label for="key">
-                    <img id="padlock" src="./assets/padlock.png" alt="padlock">
-                </label>
-                <input type="password" name="key" id="key" placeholder="  6 - digits" maxlength="6" required title="A senha pode conter letras maiúsculas e minúsculas, e números!" onclick="tMail()" readonly >
-            </p>
-            <p>
-                <input type="button" id="rButton" value="REMOVE" onclick="remove()" disabled>
-            </p>
-            
-             </form> 
-             <script>
-                   let userMail
-                   let userKey 
-                   let index
-                   let indexKey
-                   let mail = JSON.parse(localStorage.getItem('recMail')) || ''
-                   let pass = JSON.parse(localStorage.getItem('recKey'))  
-    
-    
-                   function tMail(){
-                        
-                        userMail = document.querySelector("#log").value;
-                        if(userMail.includes( '@') && userMail.includes( '.com')){
-                            index = mail.indexOf(userMail)
-    
-                            document.querySelector("#key").readOnly = false;
-                           
-                            document.querySelector("#rButton").disabled = false;
-                        }
-                        else{
-                            alert('Informe um e-mail no formato padrão!')   
-                        }
-                    }
-    
-                    function remove(){
-                        console.log(mail)
-                        userKey = document.querySelector('#key').value;
-                        if(userKey.length == 6 ){
-                      
-                            if(mail.includes(userMail) &&
-                               pass.includes(userKey)){
-                                localStorage.clear() 
-                                    alert('Todos usuários removidos!')                         
-                                    document.location.href = 'index.html'
-        
-                            }   
-                            else{
-                                index = ''
-                                alert('Verifique usuário e senha!')
-                                document.location.reload(true)
-                            }
-                        }
-                        else{
-                            alert("Informe 6 digitos entre letras e números e confirme!")    
-                        }
-                    }
-             </script>  
-        </section>
-    </body>
-    </html>
-    
-    
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove</title>
+    <style>
+      body {
+        background-color: rgb(243, 73, 73);
+      }
+      section {
+        text-align: center;
+        margin-top: 8rem;
+        background-color: rgb(243, 73, 73);
+      }
+      #user {
+        width: 110px;
+      }
+      #letter {
+        width: 20px;
+        margin-bottom: -10px;
+      }
+      #padlock {
+        width: 18px;
+        margin-bottom: -6px;
+      }
+
+      #log,
+      #key {
+        border: none;
+        border-bottom: 1px black dotted;
+        background-color: aquamarine;
+      }
+      #key:focus,
+      #log:focus {
+        outline: 0;
+        background-color: aquamarine;
+      }
+      p {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <form action="" method="post">
+        <img id="user" src="./assets/profile.png" alt="User log" />
+
+        <p>
+          <label for="log">
+            <img id="letter" src="./assets/email.png" alt="letter" />
+          </label>
+          <input
+            type="email"
+            name="log"
+            id="log"
+            placeholder=" your.e-mail@mail.com"
+            required
+            title="Informe um e-mail no formato padrão!"
+          />
+        </p>
+        <p>
+          <label for="key">
+            <img id="padlock" src="./assets/padlock.png" alt="padlock" />
+          </label>
+          <input
+            type="password"
+            name="key"
+            id="key"
+            placeholder="  6 - digits"
+            maxlength="6"
+            required
+            title="A senha pode conter letras maiúsculas e minúsculas, e números!"
+            onclick="tMail()"
+            readonly
+          />
+        </p>
+        <p>
+          <input
+            type="button"
+            id="rButton"
+            value="REMOVE"
+            onclick="remove()"
+            disabled
+          />
+        </p>
+      </form>
+    </section>
+    <script>
+      let userMail
+      let userKey
+      let index
+      let indexKey
+      let mail = JSON.parse(localStorage.getItem("recMail")) || ""
+      let pass = JSON.parse(localStorage.getItem("recKey"))
+
+      function tMail() {
+        userMail = document.querySelector("#log").value
+        if (userMail.includes("@") && userMail.includes(".com")) {
+          index = mail.indexOf(userMail)
+
+          document.querySelector("#key").readOnly = false
+
+          document.querySelector("#rButton").disabled = false
+        } else {
+          alert("Informe um e-mail no formato padrão!")
+        }
+      }
+
+      function remove() {
+        console.log(mail)
+        userKey = document.querySelector("#key").value
+        if (userKey.length == 6) {
+          if (mail.includes(userMail) && pass.includes(userKey)) {
+            localStorage.clear()
+            alert("Todos usuários removidos!")
+            document.location.href = "index.html"
+          } else {
+            index = ""
+            alert("Verifique usuário e senha!")
+            document.location.reload(true)
+          }
+        } else {
+          alert("Informe 6 digitos entre letras e números e confirme!")
+        }
+      }
+    </script>
+  </body>
+</html>
