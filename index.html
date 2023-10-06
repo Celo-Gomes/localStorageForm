@@ -104,46 +104,46 @@
           >
         </p>
       </form>
-      <script>
-        let userMail
-        let userKey
-        let index
-        let indexKey
-        let mail = JSON.parse(localStorage.getItem("recMail")) || ""
-        let pass = JSON.parse(localStorage.getItem("recKey"))
-
-        function tMail() {
-          userMail = document.querySelector("#log").value
-          if (userMail.includes("@") && userMail.includes(".com")) {
-            index = mail.indexOf(userMail)
-
-            document.querySelector("#key").readOnly = false
-
-            document.querySelector("#rButton").disabled = false
-          } else {
-            alert("Informe um e-mail no formato padrão!")
-          }
-        }
-
-        function login() {
-          console.log(mail)
-          userKey = document.querySelector("#key").value
-          if (userKey.length == 6) {
-            if (mail.includes(userMail) && pass.includes(userKey)) {
-              localStorage.indexLs = JSON.stringify(index)
-
-              document.location.href = "main.html"
-            } else {
-              index = ""
-              alert("Verifique usuário e senha!")
-              document.location.reload(true)
-            }
-          } else {
-            indexKey = ""
-            alert("Faça o login com 6 digitos, entre letras e números!")
-          }
-        }
-      </script>
     </section>
+    <script>
+      let userMail
+      let userKey
+      let index
+      let indexKey
+      let mail = JSON.parse(localStorage.getItem("recMail")) || ""
+      let pass = JSON.parse(localStorage.getItem("recKey"))
+
+      function tMail() {
+        userMail = document.querySelector("#log").value
+        if (userMail.includes("@") && userMail.includes(".com")) {
+          index = mail.indexOf(userMail)
+
+          document.querySelector("#key").readOnly = false
+
+          document.querySelector("#rButton").disabled = false
+        } else {
+          alert("Informe um e-mail no formato padrão!")
+        }
+      }
+
+      function login() {
+        console.log(mail)
+        userKey = document.querySelector("#key").value
+        if (userKey.length == 6) {
+          if (mail.includes(userMail) && pass.includes(userKey)) {
+            localStorage.indexLs = JSON.stringify(index)
+
+            document.location.href = "main.html"
+          } else {
+            index = ""
+            alert("Verifique usuário e senha!")
+            document.location.reload(true)
+          }
+        } else {
+          indexKey = ""
+          alert("Faça o login com 6 digitos, entre letras e números!")
+        }
+      }
+    </script>
   </body>
 </html>
