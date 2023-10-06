@@ -68,18 +68,18 @@
                    let userKey 
                    let index
                    let indexKey
-                   let mail = JSON.parse(localStorage.getItem('recMail')) || ''// recebe a array de e-mail buscada no navegador, se ainda não tiver conteúdo na array, recebe vazio
-                   let pass = JSON.parse(localStorage.getItem('recKey')) // recebe a array de senha buscada no navegador 
+                   let mail = JSON.parse(localStorage.getItem('recMail')) || ''
+                   let pass = JSON.parse(localStorage.getItem('recKey'))  
     
     
                    function tMail(){
                         
                         userMail = document.querySelector("#log").value;
                         if(userMail.includes( '@') && userMail.includes( '.com')){
-                            index = mail.indexOf(userMail)// armazena a posição indice do e-mail dentro da array buscada no navegador
+                            index = mail.indexOf(userMail)
     
                             document.querySelector("#key").readOnly = false;
-                            //document.querySelector('#log').readOnly = true;
+                           
                             document.querySelector("#rButton").disabled = false;
                         }
                         else{
@@ -91,15 +91,13 @@
                         console.log(mail)
                         userKey = document.querySelector('#key').value;
                         if(userKey.length == 6 ){
-    
-                            //indexKey = pass.indexOf(userKey)// armazena a posição indice da senha dentro da array buscada no navegador
-    
+                      
                             if(mail.includes(userMail) &&
                                pass.includes(userKey)){
                                 localStorage.clear() 
                                     alert('Todos usuários removidos!')                         
                                     document.location.href = 'index.html'
-                                    
+        
                             }   
                             else{
                                 index = ''
