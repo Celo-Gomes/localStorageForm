@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 Local Smart Form é um app que contém um formulário com paginas de cadastro, log, recuperação de senha e remoção de usuários.<br>
-Os dados são armazenados e recuperados atraves de 'localstorange'. Através da ferramenta FormSubmit, uma senha esquecida é enviada ao usuário cadastrado.
+Os dados são armazenados e recuperados atraves de 'localstorage'. Através da ferramenta FormSubmit, uma senha esquecida é enviada ao usuário cadastrado.
 
 -[Visite o projeto online](https://celo-gomes.github.io/rkt-port)
 
